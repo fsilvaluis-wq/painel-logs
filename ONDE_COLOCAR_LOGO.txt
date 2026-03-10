@@ -1,0 +1,74 @@
+📍 ONDE COLOCAR SUA LOGO
+=======================
+
+Para adicionar sua logo ao painel administrativo, siga os passos abaixo:
+
+OPÇÃO 1 - Usar arquivos de imagem (PNG, JPG, GIF):
+==================================================
+
+1. Coloque seu arquivo de logo em:
+   📂 c:\Users\Luis Silva\Desktop\Administração\AternusMaxCity\Painel Administrativo\painel-logs\web\public\
+   
+   Por exemplo: web/public/logo.png
+
+2. Abra o arquivo:
+   📄 web/src/App.jsx
+
+3. Procure pela linha que começa com:
+   <h1 style={styles.loginTitle}>⚔️ ATERNUS</h1>
+
+4. Adicione sua logo ACIMA dessa linha. Procure por "loginLogo" no arquivo e encontre esse troço de código:
+
+   ```jsx
+   <div style={styles.loginLogo}>
+     <h1 style={styles.loginTitle}>⚔️ ATERNUS</h1>
+   ```
+
+5. Adicione ACIMA da h1:
+   <img src="/logo.png" alt="Logo Aternus" style={{height: "80px", marginBottom: "15px"}} />
+
+6. Salve o arquivo.
+
+7. O navegador vai recarregar automaticamente com a logo!
+
+
+OPÇÃO 2 - Usar apenas Emoji (Mais rápido):
+===========================================
+
+Se quiser mudar apenas o emoji, procure por:
+   <h1 style={styles.loginTitle}>⚔️ ATERNUS</h1>
+
+E mude o emoji ⚔️ para qualquer outro. Exemplos:
+   👑 - Coroa
+   🏰 - Castelo
+   🛡️ - Escudo
+   ⚔️ - Espada (padrão)
+   🔱 - Tridente
+   🦁 - Leão
+
+
+EXEMPLO COMPLETO COM IMAGEM:
+============================
+
+Procure por:
+   <div style={styles.loginLogo}>
+     <h1 style={styles.loginTitle}>⚔️ ATERNUS</h1>
+     <p style={styles.loginSubtitle}>Painel Administrativo</p>
+   </div>
+
+E troque por:
+   <div style={styles.loginLogo}>
+     <img src="/logo.png" alt="Logo" style={{height: "80px", marginBottom: "15px"}} />
+     <h1 style={styles.loginTitle}>ATERNUS</h1>
+     <p style={styles.loginSubtitle}>Painel Administrativo</p>
+   </div>
+
+E coloque seu arquivo logo.png em: web/public/
+
+
+DÚVIDAS?
+========
+
+Se precisar de ajuda, me chama! 💬
+
+Após adicionar a logo, o painel está 100% completo! 🎉

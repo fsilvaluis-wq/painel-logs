@@ -1,0 +1,99 @@
+✅ ALTERAÇÕES REALIZADAS - ATLAS ROLEPLAY PAINEL
+================================================
+
+1️⃣ MUDANÇA DE NOME
+==================
+✅ "Aternus MaxCity RP" → "Atlas Roleplay"
+✅ Atualizado em:
+   - web/src/App.jsx (header e login)
+   - README.md
+   - INICIO_RAPIDO.md
+   - Documentação
+
+2️⃣ NOVO TIPO DE PUNIÇÃO: MUTE
+==============================
+✅ Adicionado tipo "MUTE (Silenciado)" à lista de punições
+✅ Atualizado em:
+   - web/src/App.jsx (PUNISHMENT_TYPES array)
+   - src/server.js (validação de tipos)
+
+3️⃣ CAMPO DE EVIDÊNCIAS
+=======================
+✅ Adicionado em Punições:
+   - Campo de upload de arquivo (📎 Evidências)
+   - Aceita: PNG, JPG, PDF
+   - Dados salvos em base64 no banco
+   
+✅ Adicionado em Solicitações (Suporte):
+   - Campo de upload de arquivo (📎 Evidências)
+   - Mesmo padrão de punições
+   - Dados salvos em base64 no banco
+
+✅ Atualizado em:
+   - prisma/schema.prisma (adding evidence fields)
+   - src/server.js (endpoints POST /punishments e POST /requests)
+   - web/src/App.jsx (formulários com input file)
+   - Banco de dados (migrations aplicadas)
+
+4️⃣ SINCRONIZAÇÃO DE TIPOS
+==========================
+✅ Tipos de Solicitação agora usam MESMOS TIPOS de Punição:
+   - PRISAO (Prisão)
+   - WARN (Advertência)
+   - MUTE (Silenciado)
+   - BAN (Ban Permanente)
+   - BAN_IP (Ban IP)
+
+✅ Atualizado em:
+   - web/src/App.jsx (seção "Nova Solicitação")
+   - Usa array PUNISHMENT_TYPES para dinâmico
+
+5️⃣ FORMATO DOS DADOS
+=====================
+Evidências são armazenadas como:
+- Base64 (imagem/print convertido)
+- Campo "evidence" (STRING/TEXT no banco)
+- Opcional em ambos (punições e solicitações)
+
+6️⃣ ARQUIVOS MODIFICADOS
+========================
+Backend:
+  ✅ src/server.js (endpoints + validações + MUTE)
+  ✅ prisma/schema.prisma (fields + migrations)
+
+Frontend:
+  ✅ web/src/App.jsx (TODA a interface + novo tipo + evidências)
+
+Docs:
+  ✅ README.md (novo nome)
+  ✅ INICIO_RAPIDO.md (novo nome)
+
+7️⃣ COMO TESTAR
+===============
+1. Login: admin / admin123
+2. Ir para "⚡ Punições"
+3. Selecionar tipo de punição incluindo "MUTE"
+4. Anexar uma imagem/print como evidência
+5. Enviar e verificar que foi registrado
+6. Como Support, ir para "➕ Nova Solicitação"
+7. Ver que tipos de solicitação agora são iguais aos de punição
+8. Anexar evidência e enviar
+
+8️⃣ RECOMENDAÇÕES
+=================
+✅ Fazer login e testar:
+   - Criar uma punição com MUTE + evidência
+   - Criar uma solicitação com evidência
+   - Verificar no histórico que as evidências foram salvas
+
+✅ Se quiser ver/baixar as evidências no futuro:
+   - Adicione um endpoint GET para recuperar as evidências
+   - Decodifique o base64 para mostrar a imagem/arquivo
+
+✅ Limitar tamanho de arquivo:
+   - Atualmente não há limite explícito
+   - Considere adicionar validação de tamanho se necessário
+
+TUDO PRONTO PARA USAR! 🚀
+========================
+O painel está 100% funcional com todas as novas funcionalidades!

@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  role      String
+  createdAt DateTime @default(now())
+
+  punishments        Punishment[]
+  requestsAsSupport  Request[] @relation("SupportRequests")
+  requestsAsAdmin    Request[] @relation("AdminReviews")
+}
+
+model Punishment {
+  id        Int      @id @default(autoincrement())
+  type      String
+  nickname  String
+  reason    String
+  duration  Int?
+  evidence  String?
+  createdAt DateTime @default(now())
+
+  adminId Int
+  admin   User @relation(fields: [adminId], references: [id])
+}
+
+model Request {
+  id           Int      @id @default(autoincrement())
+  type         String
+  nickname     String
+  reason       String
+  duration     Int?
+  evidence     String?
+  status       String   @default("PENDENTE")
+  reviewReason String?
+  createdAt    DateTime @default(now())
+  reviewedAt   DateTime?
+
+  supportId Int
+  support   User @relation("SupportRequests", fields: [supportId], references: [id])
+
+  adminId Int?
+  admin   User? @relation("AdminReviews", fields: [adminId], references: [id])
+}
