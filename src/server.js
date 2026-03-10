@@ -18,6 +18,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "../web/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../web/dist/index.html"));
+});
+
 app.get("/", (req, res) => {
   res.send("Servidor online");
 });
