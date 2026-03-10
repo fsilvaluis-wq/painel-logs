@@ -26,10 +26,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../web/dist/index.html"));
 });
 
-app.get("/", (req, res) => {
-  res.send("Servidor online");
-});
-
 app.get("/health", (req, res) => {
   res.json({ ok: true, message: "API online" });
 });
