@@ -45,7 +45,7 @@ function App() {
 
   const validateToken = async (token) => {
     try {
-      const response = await fetch("http://127.0.0.1:3001/health");
+      const response = await fetch("https://painel-logs.onrender.com/health");
       if (response.ok) {
         const decoded = parseJwt(token);
         if (decoded) {
